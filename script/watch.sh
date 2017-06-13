@@ -6,4 +6,4 @@
 
 cd "${SOURCE_DIR}" || echo 'path not found'
 
-landslide "${ETC_DIR}/"landslide.cfg -w ./
+landslide "${ETC_DIR}/"landslide.cfg -w ./slides
