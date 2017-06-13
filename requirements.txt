@@ -1,0 +1,4 @@
+bumpversion==0.5.3
+landslide==1.1.3
+Pygments==2.1.3
+watchdog==0.8.3
