@@ -4,5 +4,5 @@
 # shellcheck source=/dev/null
 [ -r "script/bootstrap.sh" ] && source "script/bootstrap.sh"
 
-pip install -r "${REQUIREMENTS_DIR}/"setup.txt
-pre-commit install
+pre-commit install -f --install-hooks
+pre-commit run --all-files
