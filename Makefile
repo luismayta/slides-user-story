@@ -11,6 +11,7 @@ CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
 DOCUMENTATION = $(shell) $(SCRIPT_DIR)/documentation.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
+GENERATE = $(shell) $(SCRIPT_DIR)/generate.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
 WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
 LINT = $(shell) $(SCRIPT_DIR)/lint.sh
@@ -30,6 +31,10 @@ documentation: ## Make Documentation
 	$(DOCUMENTATION)
 
 
+generate:
+	$(GENERATE)
+
+
 install: ## Install Dependences
 	$(INSTALL)
 
@@ -41,6 +46,10 @@ lint: ## Clean files unnecesary
 
 test: ## make test
 	$(TEST)
+
+
+watch: ## Show Live Reload landslide
+	$(WATCH)
 
 
 help: ## Show help text
