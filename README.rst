@@ -42,14 +42,16 @@ Other commands for developing are written in Makefile:
 .. code-block:: bash
 
   λ make help
-    Commands:
-      clean                clean Files compiled
-      environment          Make environment for developer
-      documentation        Make Documentation
-      install              Install Dependences
-      lint                 Clean files unnecesary
-      test                 make test
-      help                 Show help text
+  Commands:
+    clean                clean Files compiled
+    environment          Make environment for developer
+    documentation        Make Documentation
+    install              Install Dependences
+    lint                 Clean files unnecesary
+    test                 make test
+    watch                Show Live Reload landslide
+    help                 Show help text
+
 
 Changelog
 =========

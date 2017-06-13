@@ -48,7 +48,7 @@ test: ## make test
 	$(TEST)
 
 
-watch: ## Show Live landslide
+watch: ## Show Live Reload landslide
 	$(WATCH)
 
 
