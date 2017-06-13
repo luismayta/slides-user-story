@@ -11,6 +11,7 @@ CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
 DOCUMENTATION = $(shell) $(SCRIPT_DIR)/documentation.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
+GENERATE = $(shell) $(SCRIPT_DIR)/generate.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
 WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
 LINT = $(shell) $(SCRIPT_DIR)/lint.sh
@@ -28,6 +29,10 @@ environment: ## Make environment for developer
 documentation: ## Make Documentation
 	make clean
 	$(DOCUMENTATION)
+
+
+generate:
+	$(GENERATE)
 
 
 install: ## Install Dependences
