@@ -4,8 +4,4 @@
 # shellcheck source=/dev/null
 [ -r "script/bootstrap.sh" ] && source "script/bootstrap.sh"
 
-{
-    rm -rf -- **/**/*_pycache__
-    rm -rf -- **/**/*.pyc
-    rm -rf -- **/**/*.swp
-} >> /dev/null 2>&1
+restview "${FILE_README}"
