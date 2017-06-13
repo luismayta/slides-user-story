@@ -16,6 +16,6 @@
 
 ------
 
-## Inception
+## Incepcion
 
 ![inception](static/img/inception.png)
