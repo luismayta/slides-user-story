@@ -1,60 +1,48 @@
-# Makefile for slides-user-story.
+.PHONY: build deploy lint test functions help
+.DEFAULT_GOAL := help
 
 # Configuration.
 SHELL = /bin/bash
 ROOT_DIR = $(shell pwd)
-BIN_DIR = $(ROOT_DIR)/bin
-DATA_DIR = $(ROOT_DIR)/var
 SCRIPT_DIR = $(ROOT_DIR)/script
-
-WGET = wget
 
 # Bin scripts
 CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
-GVM = $(shell) $(SCRIPT_DIR)/gvm.sh
-GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
+DOCUMENTATION = $(shell) $(SCRIPT_DIR)/documentation.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
-LINTCODE = $(shell) $(SCRIPT_DIR)/lintcode.sh
-TEST = $(shell) $(SCRIPT_DIR)/test.sh
 WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
+LINT = $(shell) $(SCRIPT_DIR)/lint.sh
+TEST = $(shell) $(SCRIPT_DIR)/test.sh
 
 
-clean:
+clean: ## clean Files compiled
 	$(CLEAN)
 
 
-distclean: clean
-	rm -rf $(ROOT_DIR)/lib
-	rm -rf $(ROOT_DIR)/*.egg-info
-	rm -rf $(ROOT_DIR)/demo/*.egg-info
-
-
-environment:
+environment: ## Make environment for developer
 	$(PYENV)
 
 
-grip:
-	$(GRIP)
+documentation: ## Make Documentation
+	make clean
+	$(DOCUMENTATION)
 
 
-install:
+install: ## Install Dependences
 	$(INSTALL)
 
 
-maintainer-clean: distclean
-	rm -rf $(BIN_DIR)
-	rm -rf $(ROOT_DIR)/lib/
+lint: ## Clean files unnecesary
+	make clean
+	$(LINT)
 
 
-lintcode:
-	$(LINTCODE)
-
-
-watch:
-	$(WATCH)
-
-
-test:
+test: ## make test
 	$(TEST)
+
+
+help: ## Show help text
+	@echo "Commands:"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[36m%-20s\033[0m %s\n", $$1, $$2}'
