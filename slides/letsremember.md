@@ -4,6 +4,10 @@
 
 ![scrum in five minutes](static/img/scrum5minutes.jpg)
 
+----------
+
+# Scrum no es una metodologia es un Framework
+
 ------
 
 ## Vision
