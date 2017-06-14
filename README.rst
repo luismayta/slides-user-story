@@ -3,7 +3,7 @@ slides-user-story
 
 |build_status| |code_climate| |github_tag| |issues_count| |github_issues| |test_coverage| |license|
 
-:Version: 0.0.0
+:Version: 0.0.1
 :Web: https://github.com/luismayta/slides-user-story
 :Download: http://github.com/luismayta/slides-user-story
 :Source: http://github.com/luismayta/slides-user-story
