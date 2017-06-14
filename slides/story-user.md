@@ -16,11 +16,20 @@
 
 ## Requerimiento
 
+* Los Requisitos del sistema están escritos desde la perspectiva del sistema y no en la interacción del usuario, representan las características en estado puro.
+
 ![Requerimiento Sistema](static/img/requeriments-system.png)
 
 --------------------------
 
 ## Historia De Usuario
+
+* sirven para describir lo que el usuario desea ser capaz de hacer.
+* se centran en el valor que viene a usar el sistema en lugar de una especificación detallada de lo que el sistema debe hacer.
+* Están concebidos como un medio para fomentar la colaboración.
+
+
+--------------------------
 
 ![Historia de Usuario](static/img/perspectiva-story-user.jpg)
 
