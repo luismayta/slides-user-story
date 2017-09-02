@@ -2,7 +2,7 @@
 
 ### Historias de Usuario
 
-![Historias de usuario](assets/img/ustory.png)
+![Historias de usuario](assets/images/ustory.png)
 
 #VSLIDE
 
@@ -18,7 +18,7 @@
 
 ### Recordemos
 
-![scrum in five minutes](assets/img/scrum5minutes.jpg)
+![scrum in five minutes](assets/images/scrum5minutes.jpg)
 
 
 #VSLIDE
@@ -29,31 +29,31 @@
 
 ### Vision
 
-![Vision](assets/img/vision.jpg)
+![Vision](assets/images/vision.jpg)
 
 
 #VSLIDE
 
 
-![Sin un plan solo es un deseo](assets/img/image-wish.png)
+![Sin un plan solo es un deseo](assets/images/image-wish.png)
 
 #VSLIDE
 
 ### Inception
 
-![inception](assets/img/inception.png)
+![inception](assets/images/inception.png)
 
 #HSLIDE
 
 ### Historias de Usuario
 
-![Historias de usuario](assets/img/ustory.png)
+![Historias de usuario](assets/images/ustory.png)
 
 #VSLIDE
 
 ### Diagram
 
-![Diagram of story user](assets/img/user-story-diagram.jpg)
+![Diagram of story user](assets/images/user-story-diagram.jpg)
 
 #VSLIDE
 
@@ -65,7 +65,7 @@
 
 * Los Requisitos del sistema están escritos desde la perspectiva del sistema y no en la interacción del usuario, representan las características en estado puro.
 
-![Requerimiento Sistema](assets/img/requeriments-system.png)
+![Requerimiento Sistema](assets/images/requeriments-system.png)
 
 #VSLIDE
 
@@ -79,31 +79,31 @@
 #VSLIDE
 
 
-![Historia de Usuario](assets/img/perspectiva-story-user.jpg)
+![Historia de Usuario](assets/images/perspectiva-story-user.jpg)
 
 
 #VSLIDE
 
 ### Perspectiva
 
-![Historia de Usuario](assets/img/perspectiva-all.png)
+![Historia de Usuario](assets/images/perspectiva-all.png)
 
 
 #VSLIDE
 
 ### Estructura
 
-![Estructura](assets/img/EstructuraHistoriaDeUsuarioTarjeta.jpg)
+![Estructura](assets/images/EstructuraHistoriaDeUsuarioTarjeta.jpg)
 
 #VSLIDE
 
-![Invent](assets/img/invest-story-user.png)
+![Invent](assets/images/invest-story-user.png)
 
 #HSLIDE
 
 ### Criterios de aceptación
 
-![acceptance-requirements](assets/img/acceptance-requirements.jpg)
+![acceptance-requirements](assets/images/acceptance-requirements.jpg)
 
 #VSLIDE
 
