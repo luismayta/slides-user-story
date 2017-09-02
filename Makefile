@@ -17,7 +17,6 @@ CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
 DOCUMENTATION = $(shell) $(SCRIPT_DIR)/documentation.sh
 DOWN = $(shell) $(SCRIPT_DIR)/down.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
-GENERATE = $(shell) $(SCRIPT_DIR)/generate.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
 LIST = $(shell) $(SCRIPT_DIR)/list.sh
 LINT = $(shell) $(SCRIPT_DIR)/lint.sh
@@ -47,10 +46,6 @@ down: ## remove containers docker by env
 	make clean
 	@echo $(MESSAGE) "Down Services Environment: ${env}"
 	$(DOWN) "${env}" && echo $(MESSAGE_HAPPY)
-
-generate: ## Generate slides
-	make clean
-	$(GENERATE)
 
 env: ## Show envs available
 	@echo $(MESSAGE) "Environments:"
