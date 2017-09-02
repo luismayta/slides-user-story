@@ -42,15 +42,25 @@ Other commands for developing are written in Makefile:
 .. code-block:: bash
 
   λ make help
-  Commands:
-    clean                clean Files compiled
-    environment          Make environment for developer
-    documentation        Make Documentation
-    install              Install Dependences
-    lint                 Clean files unnecesary
-    test                 make test
-    watch                Show Live Reload landslide
-    help                 Show help text
+    ༼ つ ◕_◕ ༽つ Commands
+      build                Build docker container by env
+      clean                clean Files compiled
+      environment          Make environment for developer
+      documentation        Make Documentation
+      down                 remove containers docker by env
+      generate             Generate slides
+      env                  Show envs available
+      install              Install with var env Dependences
+      list                 List of current active services by env
+      lint                 Clean files unnecesary
+      test                 make test
+      up                   Up application by env
+      restart              Reload services
+      ssh                  Connect to container
+      stop                 stop containers docker by env
+      setup                Install dependences initial
+      verify_network       Verify network
+      help                 Show help text
 
 
 Changelog
