@@ -1,7 +1,7 @@
 slides-user-story
 #################
 
-|build_status| |code_climate| |github_tag| |issues_count| |github_issues| |test_coverage| |license|
+|gitpitch| |build_status| |code_climate| |github_tag| |issues_count| |github_issues| |test_coverage| |license|
 
 :Version: 0.0.1
 :Web: https://github.com/luismayta/slides-user-story
@@ -91,6 +91,10 @@ Made with :heart: :coffee:️and :pizza: by `company`_.
 .. |build_status| image:: https://travis-ci.org/luismayta/slides-user-story.svg
   :target: https://travis-ci.org/luismayta/slides-user-story
   :alt: Build Status Tag
+
+.. |gitpitch| image:: https://gitpitch.com/assets/badge.svg
+  :target: https://gitpitch.com/luismayta/slides-user-story?grs=github&t=white
+  :alt: Github Issues
 
 .. |github_issues| image:: https://img.shields.io/github/issues/luismayta/slides-user-story.svg
   :target: https://github.com/luismayta/slides-user-storyhadenlabs/cookiecutter-python-project/issues
