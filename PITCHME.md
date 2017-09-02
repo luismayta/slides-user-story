@@ -14,13 +14,12 @@
 - [@slovacus](https://twitter.com/slovacus)
 - [github.com/luismayta](https://github.com/luismayta)
 
----
-
 #HSLIDE
 
 ### Recordemos
 
 ![scrum in five minutes](assets/img/scrum5minutes.jpg)
+
 
 #VSLIDE
 
