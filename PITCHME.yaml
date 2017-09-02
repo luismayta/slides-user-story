@@ -1,0 +1,4 @@
+theme : beige
+logo : assets/images/logo.png
+theme-override : assets/css/pitchme.css
+footnote : "Copyright 2017 LuisMayta"

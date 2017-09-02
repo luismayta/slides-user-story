@@ -1,10 +1,11 @@
 slides-user-story
 #################
 
-|build_status| |code_climate| |github_tag| |issues_count| |github_issues| |test_coverage| |license|
+|gitpitch| |build_status| |code_climate| |github_tag| |test_coverage| |license|
 
-:Version: 0.0.1
+:Version: 0.0.2
 :Web: https://github.com/luismayta/slides-user-story
+:Slide: https://gitpitch.com/luismayta/slides-user-story
 :Download: http://github.com/luismayta/slides-user-story
 :Source: http://github.com/luismayta/slides-user-story
 :Keywords: slides-user-story
@@ -21,36 +22,42 @@ Requirements
 
 .. code-block:: bash
 
-   $ make install
+   $ make setup
 
 
-Slides
-=======
-
-Execute slides:
+Test
+====
 
 .. code-block:: bash
 
-   $ make generate
+   $ make test
 
-
-Others
-======
+Actions
+=======
 
 Other commands for developing are written in Makefile:
 
 .. code-block:: bash
 
   λ make help
-  Commands:
-    clean                clean Files compiled
-    environment          Make environment for developer
-    documentation        Make Documentation
-    install              Install Dependences
-    lint                 Clean files unnecesary
-    test                 make test
-    watch                Show Live Reload landslide
-    help                 Show help text
+    ༼ つ ◕_◕ ༽つ Commands
+      build                Build docker container by env
+      clean                clean Files compiled
+      environment          Make environment for developer
+      documentation        Make Documentation
+      down                 remove containers docker by env
+      env                  Show envs available
+      install              Install with var env Dependences
+      list                 List of current active services by env
+      lint                 Clean files unnecesary
+      test                 make test
+      up                   Up application by env
+      restart              Reload services
+      ssh                  Connect to container
+      stop                 stop containers docker by env
+      setup                Install dependences initial
+      verify_network       Verify network
+      help                 Show help text
 
 
 Changelog
@@ -82,13 +89,9 @@ Made with :heart: :coffee:️and :pizza: by `company`_.
   :target: https://travis-ci.org/luismayta/slides-user-story
   :alt: Build Status Tag
 
-.. |github_issues| image:: https://img.shields.io/github/issues/luismayta/slides-user-story.svg
-  :target: https://github.com/luismayta/slides-user-storyhadenlabs/cookiecutter-python-project/issues
-  :alt: Github Issues
-
-.. |issues_count| image:: https://codeclimate.com/github/luismayta/slides-user-story/badges/issue_count.svg
-  :target: https://codeclimate.com/github/luismayta/slides-user-story
-  :alt: Issue Count
+.. |gitpitch| image:: https://gitpitch.com/assets/badge.svg
+  :target: https://gitpitch.com/luismayta/slides-user-story?grs=github&t=white
+  :alt: GitPitch
 
 .. |license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
   :target: LICENSE
