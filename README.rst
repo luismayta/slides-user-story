@@ -48,7 +48,6 @@ Other commands for developing are written in Makefile:
       environment          Make environment for developer
       documentation        Make Documentation
       down                 remove containers docker by env
-      generate             Generate slides
       env                  Show envs available
       install              Install with var env Dependences
       list                 List of current active services by env
