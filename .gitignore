@@ -5,7 +5,6 @@ static/
 staticfiles/
 
 # gulp-compass metafile
-css
 
 # Node metadata
 node_modules
