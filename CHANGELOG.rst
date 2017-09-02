@@ -7,6 +7,9 @@ This file uses change log convention from `keep a CHANGELOG`_.
 `Unreleased`_
 *************
 
+`0.0.2`_ - 2017-09-02
+*********************
+
 `0.0.1`_ - 2017-06-14
 *********************
 
