@@ -1,10 +1,11 @@
 slides-user-story
 #################
 
-|gitpitch| |build_status| |code_climate| |github_tag| |issues_count| |github_issues| |test_coverage| |license|
+|gitpitch| |build_status| |code_climate| |github_tag| |test_coverage| |license|
 
 :Version: 0.0.1
 :Web: https://github.com/luismayta/slides-user-story
+:Slide: https://gitpitch.com/luismayta/slides-user-story
 :Download: http://github.com/luismayta/slides-user-story
 :Source: http://github.com/luismayta/slides-user-story
 :Keywords: slides-user-story
@@ -21,21 +22,18 @@ Requirements
 
 .. code-block:: bash
 
-   $ make install
+   $ make setup
 
 
-Slides
-=======
-
-Execute slides:
+Test
+====
 
 .. code-block:: bash
 
-   $ make generate
+   $ make test
 
-
-Others
-======
+Actions
+=======
 
 Other commands for developing are written in Makefile:
 
@@ -93,15 +91,7 @@ Made with :heart: :coffee:️and :pizza: by `company`_.
 
 .. |gitpitch| image:: https://gitpitch.com/assets/badge.svg
   :target: https://gitpitch.com/luismayta/slides-user-story?grs=github&t=white
-  :alt: Github Issues
-
-.. |github_issues| image:: https://img.shields.io/github/issues/luismayta/slides-user-story.svg
-  :target: https://github.com/luismayta/slides-user-storyhadenlabs/cookiecutter-python-project/issues
-  :alt: Github Issues
-
-.. |issues_count| image:: https://codeclimate.com/github/luismayta/slides-user-story/badges/issue_count.svg
-  :target: https://codeclimate.com/github/luismayta/slides-user-story
-  :alt: Issue Count
+  :alt: GitPitch
 
 .. |license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
   :target: LICENSE
