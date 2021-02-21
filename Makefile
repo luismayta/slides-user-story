@@ -1,103 +1,113 @@
-.PHONY: build deploy lint test functions help
+#
+# See ./docs/contributing.md
+#
+
+OS := $(shell uname)
+
+.PHONY: help
 .DEFAULT_GOAL := help
 
-DOCKER_NETWORK = slides-user-story_network
-PROYECT_NAME = slides-user-story
+HAS_PIP := $(shell command -v pip;)
+HAS_PIPENV := $(shell command -v pipenv;)
+
+ifdef HAS_PIPENV
+	PIPENV_RUN:=pipenv run
+	PIPENV_INSTALL:=pipenv install
+else
+	PIPENV_RUN:=
+	PIPENV_INSTALL:=
+endif
+
+TEAM :=luismayta
+REPOSITORY_DOMAIN:=github.com
+REPOSITORY_OWNER:=${TEAM}
+AWS_VAULT ?= ${TEAM}
+PROJECT:=slides-user-story
+PROJECT_PORT := 3000
+
+PYTHON_VERSION=3.8.0
+NODE_VERSION=14.15.5
+PYENV_NAME="${PROJECT}"
 
 # Configuration.
-SHELL = /bin/bash
-ROOT_DIR = $(shell pwd)
-MESSAGE="༼ つ ◕_◕ ༽つ"
-MESSAGE_HAPPY="${MESSAGE} Happy Coding"
-SCRIPT_DIR = $(ROOT_DIR)/script
+SHELL ?=/bin/bash
+ROOT_DIR=$(shell pwd)
+MESSAGE:=🍺️
+MESSAGE_HAPPY?:="Done! ${MESSAGE}, Now Happy Hacking"
+SOURCE_DIR=$(ROOT_DIR)
+PROVISION_DIR:=$(ROOT_DIR)/provision
+DOCS_DIR:=$(ROOT_DIR)/docs
+README_TEMPLATE:=$(PROVISION_DIR)/templates/README.md.gotmpl
 
-# Bin scripts
-BUILD = $(shell) $(SCRIPT_DIR)/build.sh
-CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
-DOCUMENTATION = $(shell) $(SCRIPT_DIR)/documentation.sh
-DOWN = $(shell) $(SCRIPT_DIR)/down.sh
-PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
-INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
-LIST = $(shell) $(SCRIPT_DIR)/list.sh
-LINT = $(shell) $(SCRIPT_DIR)/lint.sh
-TEST = $(shell) $(SCRIPT_DIR)/test.sh
-STOP =  $(shell) $(SCRIPT_DIR)/stop.sh
-SETUP =  $(shell) $(SCRIPT_DIR)/setup.sh
-UP = $(shell) $(SCRIPT_DIR)/up.sh
+export README_FILE ?= README.md
+export README_YAML ?= provision/generators/README.yaml
+export README_INCLUDES ?= $(file://$(shell pwd)/?type=text/plain)
 
-build:  ## Build docker container by env
-	make clean
-	@echo $(MESSAGE) "Building environment: ${env}"
-	$(BUILD) "${env}" && echo $(MESSAGE_HAPPY)
+FILE_README:=$(ROOT_DIR)/README.md
 
-clean: ## clean Files compiled
-	$(CLEAN)
+PATH_DOCKER_COMPOSE:=docker-compose.yml -f provision/docker-compose
 
+DOCKER_SERVICE_DEV:=app
+DOCKER_SERVICE_TEST:=app
 
-environment: ## Make environment for developer
-	$(PYENV)
+docker-compose:=$(PIPENV_RUN) docker-compose
 
+docker-test:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/test.yml
+docker-dev:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml
 
-documentation: ## Make Documentation
-	make clean
-	$(DOCUMENTATION)
+docker-test-run:=$(docker-test) run --rm ${DOCKER_SERVICE_TEST}
+docker-dev-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_DEV}
+docker-yarn-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_YARN}
 
-down: ## remove containers docker by env
-	make clean
-	@echo $(MESSAGE) "Down Services Environment: ${env}"
-	$(DOWN) "${env}" && echo $(MESSAGE_HAPPY)
+include provision/make/*.mk
 
-env: ## Show envs available
-	@echo $(MESSAGE) "Environments:"
-	@echo "dev"
-	@echo "test"
-	@echo "stage"
+help:
+	@echo '${MESSAGE} Makefile for ${PROJECT}'
+	@echo ''
+	@echo 'Usage:'
+	@echo '    environment               create environment with pyenv'
+	@echo '    readme                    build README'
+	@echo '    setup                     install requirements'
+	@echo ''
+	@make docker.help
+	@make docs.help
+	@make test.help
+	@make utils.help
+	@make python.help
+	@make yarn.help
 
-install: ## Install with var env Dependences
-	make clean
-	@echo $(MESSAGE) "Install environment: ${env}"
-	$(INSTALL) "${env}" && echo $(MESSAGE_HAPPY)
+## Create README.md by building it from README.yaml
+readme:
+	@gomplate --file $(README_TEMPLATE) \
+		--out $(README_FILE)
 
-list: ## List of current active services by env
-	make clean
-	@echo $(MESSAGE) "List Services: ${env}"
-	$(LIST) "${env}" && echo $(MESSAGE_HAPPY)
+setup:
+	@echo "=====> install packages..."
+	make python.setup
+	make python.precommit
+	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
+	@[ -e ".env" ] || cp -rf .env.example .env
+	make yarn.setup
+	@echo ${MESSAGE_HAPPY}
 
-lint: ## Clean files unnecesary
-	make clean
-	$(LINT)
+environment:
+	@echo "=====> loading virtualenv ${PYENV_NAME}..."
+	make python.environment
+	@echo ${MESSAGE_HAPPY}
 
-test: ## make test
-	make clean
-	$(TEST)
+.PHONY: clean
+clean:
+	@rm -f ./dist.zip
+	@rm -fr ./vendor
 
-up: ## Up application by env
-	make clean
-	make verify_network &> /dev/null
-	@echo $(MESSAGE) "Up Application environment: ${env}"
-	$(UP) "${env}" && echo $(MESSAGE_HAPPY)
-
-restart: ## Reload services
-	@echo $(MESSAGE) "restart Application environment: ${env}"
-	docker-compose restart
-
-ssh: ## Connect to container
-	docker exec -it $(CONTAINER) bash
-
-stop: ## stop containers docker by env
-	make clean
-	@echo $(MESSAGE) "Stop Services: ${env}"
-	$(STOP) "${env}" && echo $(MESSAGE_HAPPY)
-
-setup: ## Install dependences initial
-	make clean
-	$(SETUP)
-
-verify_network: ## Verify network
-	@if [ -z $$(docker network ls | grep $(DOCKER_NETWORK) | awk '{print $$2}') ]; then\
-		(docker network create $(DOCKER_NETWORK));\
-	fi
-
-help: ## Show help text
-	@echo $(MESSAGE) "Commands"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[36m%-20s\033[0m %s\n", $$1, $$2}'
+# Show to-do items per file.
+todo:
+	@grep \
+		--exclude-dir=vendor \
+		--exclude-dir=node_modules \
+		--exclude-dir=bin \
+		--exclude=Makefile \
+		--text \
+		--color \
+		-nRo -E ' TODO:.*|SkipNow|FIXMEE:.*' .
+.PHONY: todo
