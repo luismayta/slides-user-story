@@ -1,0 +1,13 @@
+# Docker Compose
+# https://docs.docker.com/compose/
+#
+# Usage: test up
+
+services:
+  app:
+    image: slides-user-story-app-test
+    environment: &environment
+      - STAGE=testing
+    build:
+      args:
+        stage: test
