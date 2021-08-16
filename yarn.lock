@@ -13687,7 +13687,7 @@ selfsigned@^1.10.8:
   dependencies:
     node-forge "^0.10.0"
 
-semantic-release@^17.3.9:
+semantic-release@^17.4.5:
   version "17.4.5"
   resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.4.5.tgz#b636065f3fdc8392e2fdfeac0e99d9c3805f8a3a"
   integrity sha512-s9JqU46nK1TQla37+kA7aSoNWDCkQq9/T5K2QX/z7bfI+zW3o1Pg/2nlZuZffnnROnt5sT0ysE49yhedINTtTw==
